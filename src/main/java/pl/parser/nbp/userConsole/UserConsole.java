@@ -35,7 +35,7 @@ public class UserConsole {
       case 4:
         return "GBP";
       default:
-        throw new IllegalArgumentException("");
+        throw new IllegalArgumentException("Incorrect input");
     }
   }
 
@@ -44,6 +44,4 @@ public class UserConsole {
     String date = scanner.next();
     return LocalDate.parse(date);
   }
-
-
 }
