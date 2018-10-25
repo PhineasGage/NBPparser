@@ -24,16 +24,14 @@ public class FileNamesExtractor {
     for (String path : getCorrectDirFilePaths(query.getStartDate(), query.getEndDate())) {
       URL url = new URL(path);
       URLConnection connection = url.openConnection();
-      BufferedReader in = new BufferedReader(
-          new InputStreamReader(
-              connection.getInputStream()));
-      String inputLine;
-      while ((inputLine = in.readLine()) != null) {
-        if (this.checkIfFilenameIsRelevant(inputLine, query.getStartDate(), query.getEndDate())) {
-          fileNames.add(GENERAL_PATH + inputLine + ".xml");
+      try (InputStreamReader input = new InputStreamReader(connection.getInputStream()); BufferedReader in = new BufferedReader(input)) {
+        String inputLine;
+        while ((inputLine = in.readLine()) != null) {
+          if (this.checkIfFilenameIsRelevant(inputLine, query.getStartDate(), query.getEndDate())) {
+            fileNames.add(GENERAL_PATH + inputLine + ".xml");
+          }
         }
       }
-      in.close();
     }
     return fileNames;
   }

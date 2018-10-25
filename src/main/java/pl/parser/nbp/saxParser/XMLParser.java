@@ -1,6 +1,7 @@
 package pl.parser.nbp.saxParser;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -14,8 +15,10 @@ public class XMLParser {
 
   public double[] SAXparseXmlDocumentForBuyRate(String path, String currencyCode) throws SAXException, IOException, ParserConfigurationException {
     SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-    SAXParser saxParser = saxParserFactory.newSAXParser();
-    saxParser.parse( new InputSource(new URL(path).openStream()) ,handler);
-    return handler.getCurrencyBuyRateMap().get(currencyCode);
+    try (InputStream input = new URL(path).openStream()) {
+      SAXParser saxParser = saxParserFactory.newSAXParser();
+      saxParser.parse(input, handler);
+      return handler.getCurrencyBuyRateMap().get(currencyCode);
+    }
   }
 }
