@@ -38,9 +38,9 @@ public class CurrencyExchangeRateCalculator {
     for (double[] buySale : resultSet) {
       descriptiveStatisticsSale.addValue(buySale[1]);
     }
-    System.out.print("Arithmetic mean = ");
+    System.out.print("Arithmetic mean of buy rate = ");
     System.out.println(descriptiveStatisticsBuy.getMean());
-    System.out.print("Standard Deviation = ");
+    System.out.print("Standard Deviation of sale rate = ");
     System.out.println(descriptiveStatisticsSale.getStandardDeviation());
   }
 }
