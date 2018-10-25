@@ -6,8 +6,8 @@ import java.util.List;
 import javax.xml.parsers.ParserConfigurationException;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.xml.sax.SAXException;
-import pl.parser.nbp.Helpers.FileNamesExtractor;
-import pl.parser.nbp.SAXparser.XMLParser;
+import pl.parser.nbp.helpers.FileNamesExtractor;
+import pl.parser.nbp.saxParser.XMLParser;
 import pl.parser.nbp.userConsole.Query;
 import pl.parser.nbp.userConsole.UserConsole;
 

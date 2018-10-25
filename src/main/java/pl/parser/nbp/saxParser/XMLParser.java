@@ -1,4 +1,4 @@
-package pl.parser.nbp.SAXparser;
+package pl.parser.nbp.saxParser;
 
 import java.io.IOException;
 import java.net.URL;

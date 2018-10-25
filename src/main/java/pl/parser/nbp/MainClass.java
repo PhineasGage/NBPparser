@@ -3,8 +3,8 @@ package pl.parser.nbp;
 import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
-import pl.parser.nbp.Helpers.FileNamesExtractor;
-import pl.parser.nbp.SAXparser.XMLParser;
+import pl.parser.nbp.helpers.FileNamesExtractor;
+import pl.parser.nbp.saxParser.XMLParser;
 import pl.parser.nbp.userConsole.UserConsole;
 
 public class MainClass {

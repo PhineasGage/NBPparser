@@ -1,4 +1,4 @@
-package pl.parser.nbp.Helpers;
+package pl.parser.nbp.helpers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,9 +14,10 @@ import pl.parser.nbp.userConsole.Query;
 
 public class FileNamesExtractor {
 
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
-  String generalPath = "http://www.nbp.pl/kursy/xml/";
-  String dirPath = "http://www.nbp.pl/kursy/xml/dir";
+  private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
+  private static final String GENERAL_PATH = "http://www.nbp.pl/kursy/xml/";
+  private static final String DIR_PATH = "http://www.nbp.pl/kursy/xml/dir";
+
 
   public List<String> getCorrectXmlFilesPathsFromDirs(Query query) throws IOException {
     List<String> fileNames = new ArrayList<>();
@@ -29,7 +30,7 @@ public class FileNamesExtractor {
       String inputLine;
       while ((inputLine = in.readLine()) != null) {
         if (this.checkIfFilenameIsRelevant(inputLine, query.getStartDate(), query.getEndDate())) {
-          fileNames.add(generalPath + inputLine + ".xml");
+          fileNames.add(GENERAL_PATH + inputLine + ".xml");
         }
       }
       in.close();
@@ -43,9 +44,9 @@ public class FileNamesExtractor {
     List<String> dirPaths = new ArrayList<>();
     for (int year = yearStart; year <= yearEnd; year++) {
       if (year == Year.now().getValue()) {
-        dirPaths.add(dirPath + ".txt");
+        dirPaths.add(DIR_PATH + ".txt");
       } else {
-        dirPaths.add(dirPath + year + ".txt");
+        dirPaths.add(DIR_PATH + year + ".txt");
       }
     }
     return dirPaths;

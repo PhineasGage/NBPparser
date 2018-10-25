@@ -3,9 +3,9 @@ package pl.parser.nbp.userConsole;
 import java.time.LocalDate;
 
 public class Query {
-  LocalDate startDate;
-  LocalDate endDate;
-  String currencyCode;
+  private LocalDate startDate;
+  private LocalDate endDate;
+  private String currencyCode;
 
   public LocalDate getStartDate() {
     return startDate;
