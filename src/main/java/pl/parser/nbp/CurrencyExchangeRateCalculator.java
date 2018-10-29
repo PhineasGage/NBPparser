@@ -34,8 +34,6 @@ public class CurrencyExchangeRateCalculator {
     DescriptiveStatistics descriptiveStatisticsSale = new DescriptiveStatistics();
     for (double[] buySale : resultSet) {
       descriptiveStatisticsBuy.addValue(buySale[0]);
-    }
-    for (double[] buySale : resultSet) {
       descriptiveStatisticsSale.addValue(buySale[1]);
     }
     System.out.print("Arithmetic mean of buy rate = ");
